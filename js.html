@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plantilla</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="includes/style.css"">
+    </head>
+    <body ondblclick="randomPallette()">
+
+        <div id="content">
+            <div id="header">
+                <div id="title">
+                    <h1>Miguel</h1>
+                    <div id="F"><h1>F</h1></div>
+                    <div id="G"><h1>G</h1></div>
+                    <div id="P"><h1>P</h1></div>
+                </div>
+
+                <div id="menu">
+                    <ul>
+                        <li id="sandwich"><h1><a href="index.html">Inicio</a></h1></li>
+                        <li class="option"><h1><a href="perfil.html">Perfil</a></h1></li>
+                        <li class="option"><h1><a href="portfolio.html">Portfolio</a></h1></li>
+                        <li class="option"><h1><a href="estilo.html">Estilo</a></h1></li>
+                        <li class="option"><h1><a href="contact.html">Contacto</a></h1></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div id="main">
+                <div id="submenu">
+                    <ul>
+                        <li><h1><a href="js.html">Ejercicios JS</a></h1></li>
+                        <li><h1><a href="" onclick="openCalc()">Calculadora</a></h1></li>
+                        <li><h1><a href="xampp.html">Vídeos XAMPP</a></h1></li>                        
+                    </ul>
+                </div>
+
+                <div id="js">
+                    <h2>Muestra el navegador que está usando</h2>
+                    <button onclick="navegador()">Navegador</button>
+                    <p id="navegador"></p>
+                    
+                    <h2>Aumenta o disminuye la letra del texto</h2>
+                    <button onclick="aumentar()">Aumentar</button>
+                    <button onclick="disminuir()">Disminuir</button><br><br>
+                    <p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed magna nisl, tincidunt nec enim ac, consectetur semper arcu. Suspendisse potenti. Aenean sit amet mi orci. Nunc sit amet nulla nibh. Sed risus ante, elementum quis tortor at, pharetra lacinia sapien. Proin purus dui, porttitor ac scelerisque et, ullamcorper a est.</p>
+
+                    <h2>Elimina el párrafo anterior</h2>
+                    <button onclick="hide()">Eliminar</button> 
+                    
+                    <h2>Genera una lista de números</h2>
+                    <button onclick="list()">Lista</button>
+                    <p id="list"></p>
+
+                    <h2>Realiza una operación numérica</h2>
+                    <button onclick="operator()">Operar</button>
+                    <p id="result"></p>
+                    
+                    <h2>Crea un objeto alumno y muestra sus datos</h2>
+                    <button onclick="crearAlumno()">Crear</button>
+                    <p id="data"></p>
+                </div>
+            </div>
+    
+            <div id="footer">
+                <h3>@ All Rights Reserved</h3>
+            </div>
+        </div>
+    <script type="text/javascript" src="includes/script.js"></script>
+    </body>
+</html>

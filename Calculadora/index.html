@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculadora</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style.css"">
+    </head>
+    <body>
+     
+        <div class="calc">
+            <input value=0 type="text" pattern="0-9" id="screen" oninput="inputNumber(value)" readonly>
+            <div class="logo">N!ntendo CALCBOY</div>
+            <div class="button-wrapper">              
+                <div class="button" onclick="operator('7')">7</div>
+                <div class="button" onclick="operator('8')">8</div>
+                <div class="button" onclick="operator('9')">9</div>
+                <div class="button" onclick="operator('C')">C</div>
+                <div class="button" onclick="operator('4')">4</div>
+                <div class="button" onclick="operator('5')">5</div>
+                <div class="button" onclick="operator('6')">6</div>
+                <div class="button" onclick="operator('+')">+</div>
+                <div class="button" onclick="operator('1')">1</div>
+                <div class="button" onclick="operator('2')">2</div>
+                <div class="button" onclick="operator('3')">3</div>
+                <div class="button" onclick="operator('-')">-</div>
+                <div class="button" onclick="operator('0')">0</div>
+                <div class="button" onclick="operator('*')">X</div>
+                <div class="button" onclick="operator('/')">/</div>
+                <div class="button" onclick="operator('=')">=</div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/script.js"></script>        
+    </body>
+</html>

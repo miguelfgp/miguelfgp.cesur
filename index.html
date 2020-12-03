@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plantilla</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="includes/style.css"">
+    </head>
+    <body ondblclick="randomPallette()">
+
+        <div id="content">
+            <div id="header">
+                <div id="title">
+                    <h1>Miguel</h1>
+                    <div id="F"><h1>F</h1></div>
+                    <div id="G"><h1>G</h1></div>
+                    <div id="P"><h1>P</h1></div>
+                </div>
+
+                <div id="menu">
+                    <ul>
+                        <li id="sandwich"><h1><a href="index.html">Inicio</a></h1></li>
+                        <li class="option"><h1><a href="perfil.html">Perfil</a></h1></li>
+                        <li class="option"><h1><a href="portfolio.html">Portfolio</a></h1></li>
+                        <li class="option"><h1><a href="estilo.html">Estilo</a></h1></li>
+                        <li class="option"><h1><a href="contact.html">Contacto</a></h1></li>
+                    </ul>
+                </div>
+            </div>
+
+    
+            <div id="main">
+                <div id="tryme">
+                    <h1>¿Te aburre el blanco y negro? ¡Haz doble clic!</h1>
+                </div>
+
+                <div id="counter">
+                    <h1><span id="number">994784</span> visitors today!</h1>
+                </div>
+            </div>
+
+
+    
+    
+            <div id="footer">
+                <h3>@ All Rights Reserved</h3>
+            </div>
+        </div>
+
+        <script>
+            var n = localStorage.getItem('counter');
+
+            if (n === null) {
+                n = 0;
+            }
+
+            n++;
+
+            localStorage.setItem("counter", n);
+            
+            var visitors = parseInt(document.getElementById("number").innerHTML);
+            visitors += parseInt(localStorage.getItem("counter"));
+            document.getElementById("number").innerHTML = visitors;
+        </script>
+    <script type="text/javascript" src="includes/script.js"></script>
+    </body>
+</html>
