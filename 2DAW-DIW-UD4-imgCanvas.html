@@ -60,10 +60,23 @@ fecha: Febrero 2021
 		window.onload = function() {
 		
 			$( "canvas" ).each(function( index ) {
-				console.log("hola");
-				//console.log( $( this ).attr('id') );
+				//console.log("hola");
+				id = $( this ).attr('id');
+				var lienzo = document.getElementById(id);
+		  		var dibujo = lienzo.getContext("2d");
+				
+				var logo = new Image();
+		  		logo.onload = function() {
+					dibujo.drawImage(logo, 0, 0,logo.width , logo.height);
+					dibujo.strokeStyle = "red";
+					dibujo.strokeRect(0, 0, logo.width, logo.height);
+					//console.log(dibujo);
+				};
+				logo.src = 'mmedia/Mushroom 1.png';
+				console.log(logo);
 			});
-		  var lienzo = document.getElementById();
+			/*
+		  var lienzo = document.getElementById(id);
 		  var dibujo = lienzo.getContext("2d");
 		  
 		  var logo = new Image();
@@ -82,14 +95,16 @@ fecha: Febrero 2021
 			// PARA EL PROYECTO FINAL: El ejercicio 3 permitiendo elegir 3 imágenes al usuario, partiendo de un 
 			// canvas de 300x200.
 			// añade al lienzo el logo elegido pero forzando el ancho y alto
+			
 			 dibujo.drawImage(logo, 0, 0,logo.width , logo.height);
 			// añade al lienzo un recuadro verde
+			
 			dibujo.strokeStyle = "red";
 			dibujo.strokeRect(0, 0, logo.width, logo.height);
 		  };
 		  // establece cuál es la imagen a utilizar
 		  logo.src = 'mmedia/Mushroom 1.png';
-		  
+		  */
 		}
 	</script>
 </body>
