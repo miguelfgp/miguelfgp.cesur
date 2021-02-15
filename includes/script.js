@@ -2,9 +2,12 @@ visitCounter();
 
 document.addEventListener('keydown', function(event) {
 
+  event.preventDefault();
   
   let code = event.code;
   let helpText = document.getElementById("help").getElementsByTagName("h1")[0];
+  console.log(code);
+  console.log(helpText);
 
   if (code.slice(0,1) == 'F'){
     let num = code.slice(1);
