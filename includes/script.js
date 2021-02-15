@@ -1,3 +1,55 @@
+visitCounter();
+
+document.addEventListener('keydown', function(event) {
+
+  
+  let code = event.code;
+  let helpText = document.getElementById("help").getElementsByTagName("h1")[0];
+
+  if (code.slice(0,1) == 'F'){
+    let num = code.slice(1);
+    if (num == '1'){
+      helpText.innerHTML = 'Aquí aparecerá el texto de ayuda que has pedido';
+    } else {
+      if (helpText.innerHTML == ''){
+        helpText.innerHTML = 'Si quieres ayuda presiona F1 (presiona cualquier tecla para continuar)'
+      } else {
+        helpText.innerHTML = '';
+      }
+    }
+  }
+  
+
+  if (code == 'Delete'){
+      operator('C');
+  } else {
+      let type = code.slice(0,-1);
+      let number = parseInt(code.slice(-1));
+
+      if (type == "Digit"){
+          operator(number);
+      } else if (type == "Numpad"){
+          
+          if (number >= 0 || number <= 9){
+              operator(number);
+          }
+
+      } else {
+
+          let op = code.slice(6);
+
+          switch (op){
+              case 'Add': operator('+'); break;
+              case 'Subtract': operator('-'); break;
+              case 'Multiply': operator('*'); break;
+              case 'Divide': operator('/'); break;
+              case 'Enter': operator('='); break;
+          }
+      }
+  }
+
+});
+
 function randomPallette(){
 
   let redColor = Math.floor(Math.random() * 50);
@@ -14,6 +66,22 @@ function randomPallette(){
   document.documentElement.style.setProperty('--color1', color1);
   document.documentElement.style.setProperty('--color2', color2);
     
+}
+
+function visitCounter(){
+  var n = localStorage.getItem('counter');
+
+  if (n === null) {
+      n = 0;
+  }
+
+  n++;
+
+  localStorage.setItem("counter", n);
+
+  var visitors = parseInt(document.getElementById("number").innerHTML);
+  visitors += parseInt(localStorage.getItem("counter"));
+  document.getElementById("number").innerHTML = visitors;
 }
 
 function openCalc()
