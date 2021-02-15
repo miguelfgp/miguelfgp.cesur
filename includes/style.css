@@ -169,8 +169,12 @@ body{
     margin-top: 200px;
 }
 
+#help{
+    margin-top: 200px;
+}
+
 #counter{
-    margin-top: 300px;
+    margin-top: 200px;
 }
 
 #tryit h1, #counter h1{
@@ -207,6 +211,10 @@ body{
 
 #submenu ul a{
     text-decoration: none;
+}
+
+#js{
+    margin-bottom: 100px;
 }
 
 #js h2{
@@ -302,7 +310,7 @@ body{
         margin-top: 300px;
     }
 
-    #counter, #estilo, #skills, #contact{
+    #help, #counter, #estilo, #skills, #contact{
         margin-top: 100px;
         margin-bottom: 50px;
     }
