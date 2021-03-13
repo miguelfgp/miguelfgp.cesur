@@ -165,6 +165,7 @@ function operator(){
   let num2;
   let op;
   let operators = ['+', '-', '*', '/']
+
   do{
       num1 = prompt('Introduzca el primer número');
       if (isNaN(num1)){
@@ -212,24 +213,71 @@ class Alumno {
   }
 }
 
-  function crearAlumno(){
-    
-    do{
-      nombre = prompt('Introduzca un nombre');
-      if (!isNaN(nombre)){
-          alert('Introduzca un nombre');
+function crearAlumno(){
+  
+  do{
+    nombre = prompt('Introduzca un nombre');
+    if (!isNaN(nombre)){
+        alert('Introduzca un nombre');
+    }
+  } while (nombre != undefined && !isNaN(nombre))
+
+  do{
+    edad = prompt('Introduzca una edad');
+    if (isNaN(edad)){
+        alert('Introduzca un número');
+    }
+  } while (edad != undefined && isNaN(edad))
+
+  let alumno = new Alumno(nombre, edad);
+
+  document.getElementById('data').innerHTML = alumno.toString()
+}
+  
+function esPrimo(){
+    let txt = "";
+    let primo = true;
+    let number = document.getElementById("primo").value
+
+    if (document.getElementById("primo").validity.rangeUnderflow) {
+      txt = "Número demasiado pequeño";
+    } else if (document.getElementById("primo").validity.rangeOverflow) {
+      txt = "Número demasiado grande";
+    } else {
+
+      i = 2
+      while (primo && i < number){
+        if (number % i == 0){
+          primo = false;
+        }
+        i++;
       }
-    } while (nombre != undefined && !isNaN(nombre))
 
-    do{
-      edad = prompt('Introduzca una edad');
-      if (isNaN(edad)){
-          alert('Introduzca un número');
+      if (primo){
+        txt = "El número es primo";
+      } else {
+        txt = "El número no es primo";
       }
-    } while (edad != undefined && isNaN(edad))
+    }  
+    document.getElementById("esprimo").innerHTML = txt;
+  }
 
-    let alumno = new Alumno(nombre, edad);
+function regex(){
+  let message = "";
 
-    document.getElementById('data').innerHTML = alumno.toString()
+  let pattern = /^[A-Z]{1}[A-Za-z]+(\s+[A-Z]{1}[A-Za-z]+){1,3}$/
+
+  let regex = new RegExp(pattern);
+  
+  let text = document.getElementById("regex").value;
+
+  let regCheck = regex.test(text);
+
+  if (regCheck){
+    message = "Nombre correcto";
+  } else {
+    message = "Formato incorrecto";
   }
   
+  document.getElementById("cumpleregex").innerHTML = message
+}

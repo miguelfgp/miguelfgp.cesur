@@ -1,0 +1,15 @@
+body{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    color: #2F4F4F;
+    background-color: #F0F8FF;
+}
+
+body p{
+    font-size: 24px;
+}
+
+#weather{
+    list-style-type: none;
+}
