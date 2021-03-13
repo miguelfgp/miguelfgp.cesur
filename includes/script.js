@@ -81,7 +81,7 @@ function helper(){
 function openCalc()
 {
   if (window.confirm('¿Desea probar la calculadora?')){
-    var ventana = open('../Calculadora/', '_blank', 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,height=467px,width=334px');
+    var ventana = open('Calculadora', '_blank', 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,height=467px,width=334px');
   }
   else{
     window.alert('No hay problema');
