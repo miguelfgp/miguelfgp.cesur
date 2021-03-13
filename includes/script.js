@@ -13,7 +13,6 @@ function canvas(src){
 
     ctx.fillRect(0, 0, width, height);
     ctx.drawImage(img, 0, 0, width, height);
-
   } else {
     ctx.fillRect(0, 0, img.width, img.height);
     ctx.drawImage(img, 0, 0, img.width, img.height);
@@ -106,22 +105,29 @@ function aumentar(){
 }
 
 function disminuir(){
-
   elemento = document.getElementById('text');
   size = parseInt(window.getComputedStyle(elemento, null).getPropertyValue('font-size'));
   size--;
   document.getElementById('text').style.fontSize = size + 'px';
-
 }
 
 function hide(){
 
-  display = window.getComputedStyle(document.body).display;    
-
-  if (display == 'block'){
-    document.getElementById('text').style.display = 'none';
+  elemento = document.getElementById('text');
+  size = parseInt(window.getComputedStyle(elemento, null).getPropertyValue('font-size'));
+  
+  if (size > 0){
+    document.getElementById('text').style.fontSize = 0 + 'px';
   }
+}
 
+function show(){
+  elemento = document.getElementById('text');
+  size = parseInt(window.getComputedStyle(elemento, null).getPropertyValue('font-size'));
+  
+  if (size == 0){
+    document.getElementById('text').style.fontSize = 16 + 'px';
+  }
 }
 
 

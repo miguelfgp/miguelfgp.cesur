@@ -27,40 +27,29 @@
                     </ul>
                 </div>
             </div>
-
     
             <div id="main">
-                <div id="submenu">
+                <div class="submenu">
                     <ul>
                         <li><h1><a href="js.html">Ejercicios JS</a></h1></li>
-                        <li><h1><a href="" onclick="openCalc()">Calculadora</a></h1></li>
-                        <li><h1><a href="xampp.html">Vídeos XAMPP</a></h1></li>                        
+                        <li><h1><a href="css.html">Ejercicios CSS</a></h1></li>
+                        <li><h1><a href="despliegue.html">Ejercicios Despliegue</a></h1></li>                        
                     </ul>
                 </div>
 
-                <div id="video">
+                <div class="submenu">
+                    <ul>
+                        <li><h1><a href="js (Primer trimestre).html">Primer trimestre</a></h1></li>
+                        <li><h1><a href="js (Segundo trimestre).html">Segundo trimestre</a></h1></li>                       
+                    </ul>
+                </div>
 
-                    
-                    <h2><a href="https://drive.google.com/file/d/1rUgSfTP3arfWdkmbiozTOSBQevpijAkK/view?usp=sharing">Descarga de vídeos</a></h2>
-                    <h2>Inicio XAMPP</h2>
-                    <video controls>
-                        <source src="mmedia/01 Inicio.mp4" type="video/mp4">
-                    </video>
-
-                    <h2>Configuración Hosts</h2>
-                    <video controls>
-                        <source src="mmedia/02 Hosts.mp4" type="video/mp4">
-                    </video>
-
-                    <h2>Configuración SSL</h2>
-                    <video controls>
-                        <source src="mmedia/03 SSL.mp4" type="video/mp4">
-                    </video>
-
-                    <h2>Configuración FTPS</h2>
-                    <video controls>
-                        <source src="mmedia/04 FTPS.mp4" type="video/mp4">
-                    </video>
+                <div class="ejercicios">
+                    <h2>La imagen pinchada con el ratón se traslada al canvas inferior. La imagen se adapta al canvas si es demasiado grande</h2>
+                    <img src="mmedia/Mushroom 1.png" onclick="canvas(src)">
+                    <img src="mmedia/Mushroom 2.png" onclick="canvas(src)">
+                    <img src="mmedia/Mushroom 3.png" onclick="canvas(src)"><br>
+                    <canvas id="canvas" width="300" height="200"></canvas>	
                 </div>
             </div>
     
@@ -69,5 +58,11 @@
             </div>
         </div>
     <script type="text/javascript" src="includes/script.js"></script>
+    <script>
+        var c = document.getElementById("canvas");
+		var ctx = c.getContext("2d");
+		ctx.fillStyle = "DarkCyan";
+		ctx.fillRect(0, 0, c.width, c.height);
+    </script>
     </body>
 </html>

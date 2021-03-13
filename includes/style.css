@@ -199,25 +199,25 @@ body{
     text-decoration: underline;
 }
 
-#submenu{
+.submenu{
     width: 100%;
 }
 
-#submenu ul{
+.submenu ul{
     display: flex;
     list-style: none;
     justify-content: space-evenly;
 }
 
-#submenu ul a{
+.submenu ul a{
     text-decoration: none;
 }
 
-#js{
+.ejercicios{
     margin-bottom: 100px;
 }
 
-#js h2{
+.ejercicios h2{
     text-decoration: underline;
     margin-top: 100px;
 }
