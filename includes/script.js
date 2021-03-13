@@ -1,4 +1,25 @@
+function canvas(src){
+  ctx.fillStyle = window.getComputedStyle( document.body ,null).getPropertyValue('background-color'); 
+  ctx.fillRect(0, 0, c.width, c.height);
+  var img = new Image();
+  img.src = src;
+  ctx.fillStyle = "DarkCyan";
 
+  //var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+  if (img.width > c.width || img.height > c.height){
+    var ratio = Math.min(c.width / img.width, c.height / img.height);
+    var height = img.height * ratio;
+    var width = img.width * ratio;
+
+    ctx.fillRect(0, 0, width, height);
+    ctx.drawImage(img, 0, 0, width, height);
+
+  } else {
+    ctx.fillRect(0, 0, img.width, img.height);
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+  }
+  
+}
 
 function randomPallette(){
 
@@ -60,7 +81,7 @@ function helper(){
 function openCalc()
 {
   if (window.confirm('¿Desea probar la calculadora?')){
-    var ventana = open('../Calculadora/index.html', '_blank', 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,height=467px,width=334px');
+    var ventana = open('../Calculadora/', '_blank', 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,height=467px,width=334px');
   }
   else{
     window.alert('No hay problema');
@@ -137,7 +158,7 @@ function operator(){
   let num1;
   let num2;
   let op;
-
+  let operators = ['+', '-', '*', '/']
   do{
       num1 = prompt('Introduzca el primer número');
       if (isNaN(num1)){
@@ -152,10 +173,11 @@ function operator(){
           'Para restar: - \n' +
           'Para multiplicar: * \n' +
           'Para dividir: /');
-          if (op != undefined && op != '+' && op != '-' && op != '*' && op != '/'){
-              alert('Introduzca un operador válido');
+          
+          if (op != undefined && !operators.includes(op)){
+              alert('Introduzca un operador válido ');
           }
-      } while (op != undefined && (op != '+' && op != '-' && op != '*' && op != '/'))
+      } while (op != undefined && !operators.includes(op))
   }
 
   if (num1 != undefined && op != undefined){

@@ -62,10 +62,11 @@
                     <button onclick="crearAlumno()">Crear</button>
                     <p id="data"></p>
 
-                    <h2>Dibuja un canvas sobre el dibujo en el que se hace click</h2>
-                    <img src="mmedia/Mushroom 1.png" alt="Mushroom 1">
-                    <img src="mmedia/Mushroom 2.png" alt="Mushroom 2">
-                    <img src="mmedia/Mushroom 3.png" alt="Mushroom 3">
+                    <h2>La imagen pinchada con el ratón se traslada al canvas inferior. La imagen se adapta al canvas si es demasiado grande</h2>
+                    <img src="mmedia/Mushroom 1.png" onclick="canvas(src)">
+                    <img src="mmedia/Mushroom 2.png" onclick="canvas(src)">
+                    <img src="mmedia/Mushroom 3.png" onclick="canvas(src)"><br>
+                    <canvas id="canvas" width="300" height="200"></canvas>	
                 </div>
             </div>
     
@@ -74,5 +75,11 @@
             </div>
         </div>
     <script type="text/javascript" src="includes/script.js"></script>
+    <script>
+        var c = document.getElementById("canvas");
+		var ctx = c.getContext("2d");
+		ctx.fillStyle = "DarkCyan";
+		ctx.fillRect(0, 0, c.width, c.height);
+    </script>
     </body>
 </html>

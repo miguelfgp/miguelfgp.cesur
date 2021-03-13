@@ -1,0 +1,42 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../../../../Archivos%20de%20trabajo/Miguel%20Francisco%20Gonz�lez%20Pujaz�n/Validacion%20de%20%20Formularios/css/style.css">
+    <meta charset="utf-8">
+</head>
+<body>
+    <input id="id1" type="number" min="0" max="500">
+    <button onclick="myFunction()">OK</button>
+    
+    <p id="demo"></p>
+    
+<script>
+  function myFunction() {
+
+    let txt = "";
+    let primo = true;
+    let number = document.getElementById("id1").value
+
+    if (document.getElementById("id1").validity.rangeUnderflow) {
+      txt = "Número demasiado pequeño";
+    } else if (document.getElementById("id1").validity.rangeOverflow) {
+      txt = "Número demasiado grande";
+    } else {
+
+      for (i = 2; i < number; i++){
+        if (number % i == 0){
+          primo = false;
+        }
+      }
+
+      if (primo){
+        txt = "El número es primo";
+      } else {
+        txt = "El número no es primo";
+      }
+    }  
+    document.getElementById("demo").innerHTML = txt;
+  }
+</script>
+</body>
+</html>
+
