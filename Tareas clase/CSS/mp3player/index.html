@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+
+        <audio id="audio">
+          <source src="media/The Concept of Love.mp3" type="audio/mpeg">
+        </audio>
+
+        <h1 id="title" class="text">EZ MP3 Player</h1>
+        
+        <div id="player">
+            <input type="image" id="rewind" onclick="rewind()" onmouseover="textWriter(id)" onmouseout="textWriter('none')" src="icons/rewind.png">
+            <input type="image" id="stop" onclick="stop()" onmouseover="textWriter(id)" onmouseout="textWriter('none')" src="icons/stop.png">
+            <input type="image" id="play" onclick="play()" onmouseover="textWriter(id)" onmouseout="textWriter('none')" src="icons/play.png">
+            <input type="image" id="forward" onclick="forward()" onmouseover="textWriter(id)" onmouseout="textWriter('none')" src="icons/forward.png">
+            <input type="image" id="loop" onclick="loop()" onmouseover="textWriter(id)" onmouseout="textWriter('none')" src="icons/loop.png">
+        </div>
+
+        <h1 id="info" class="text"></h1>
+
+        <script>
+            var mp3 = document.getElementById("audio"); 
+            var playing = false;
+            var loopInfo = "Off";
+            
+            function play() { 
+            
+                if (playing){
+                    mp3.pause();
+                    playing = false;
+                } else {
+                    mp3.play(); 
+                    playing = true;
+                }
+            } 
+
+            function stop() { 
+                mp3.currentTime = 0;
+                mp3.pause();
+                playing = false;
+            }              
+            
+            function rewind() { 
+                mp3.currentTime -= 10;
+            } 
+
+            function forward() { 
+                mp3.currentTime += 10;
+            }
+
+            function loop() { 
+                
+                if (mp3.loop == true){
+                    mp3.loop = false;
+                    loopInfo = "Off";
+                    textWriter("loop");
+                } else {
+                    mp3.loop = true;
+                    loopInfo = "On";
+                    textWriter("loop");
+                }
+
+                console.log(mp3.loop);
+            }
+
+            function textWriter(id){
+                let text;
+
+                switch(id){
+                    case "rewind": 
+                        text = "Rebobina la canción 10 segundos"; break;
+                    case "stop":
+                        text = "Detiene la canción"; break;
+                    case "play":
+                        text = "Reproduce o detiene la canción"; break;
+                    case "forward":
+                        text = "Adelanta la canción 10 segundos"; break;
+                    case "loop": 
+                        text = "Activa o detiene la reproducción automática (Loop: " + loopInfo + ")"; break;
+                    case "none":
+                        text = ""; break;
+                }
+
+                document.getElementById("info").innerHTML = text;
+            }
+
+           
+        </script>
+        
+        
+    </body>

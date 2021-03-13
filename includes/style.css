@@ -169,10 +169,6 @@ body{
     margin-top: 200px;
 }
 
-#help{
-    margin-top: 200px;
-}
-
 #counter{
     margin-top: 200px;
 }
@@ -246,6 +242,15 @@ body{
     height: 480px;
 }
 
+#result ul{
+    list-style-type: none;
+}
+
+#X, #lista1, #lista2{
+    font-weight: bold;
+    font-size: 60px;
+}
+
 /* MEDIA QUERIES */
 
 @media only screen and (max-width:1525px){ 
@@ -311,7 +316,7 @@ body{
         margin-top: 300px;
     }
 
-    #help, #counter, #estilo, #skills, #contact{
+    #counter, #estilo, #skills, #contact{
         margin-top: 100px;
         margin-bottom: 50px;
     }

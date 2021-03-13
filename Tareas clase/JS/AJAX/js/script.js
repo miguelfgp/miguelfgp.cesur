@@ -5,12 +5,12 @@ $(document).ready(function() {
         $( "select option:selected").each(function() {
             value = $( this ).val();
         });
-        weatherRaw = getWeather(value);
+        let weatherRaw = getWeather(value);
 
         weatherRaw.then(function(weather) {
-            var ul = document.createElement("ul");
-            var li = '';
-            var content = '';
+            let ul = document.createElement("ul");
+            let li = '';
+            let content = '';
             ul.setAttribute("id", "weather");
 
             for (attr in weather){
@@ -20,7 +20,7 @@ $(document).ready(function() {
                 ul.appendChild(li);
             }
 
-            $( "#result" ).append(ul);
+            $( "#tiempo" ).append(ul);
         });
     })
 });

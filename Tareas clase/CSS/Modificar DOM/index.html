@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css"">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="center">
+        <span id="lista1"></span>
+        <span id="X">X</span>
+        <span id="lista2"></span>
+    </div>
+
+    <script>
+        function addNumber(){
+            let number;
+            let span;
+            let lista;
+
+            $(document).on('keypress', function (event) {
+
+                number = parseInt(String.fromCharCode(event.which));
+                
+                if (number < 5){
+                    span = "#lista1";
+                } else {
+                    span = "#lista2";
+                }
+
+                $(span).append(number);
+                lista = Array.from($(span).text());
+                $(span).html(lista.sort());
+
+            });
+        }
+
+    </script>
+</body>

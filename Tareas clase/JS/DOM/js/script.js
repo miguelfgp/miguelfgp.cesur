@@ -4,12 +4,13 @@ var elemento;
 var tamanhoLetra;
 
 function invertirColor(){
-0
+
     colorFondo = window.getComputedStyle(document.body).backgroundColor;
     colorTexto = window.getComputedStyle(document.body).color;
     
     document.body.style.color = colorFondo;
     document.body.style.backgroundColor = colorTexto;
+
 }
 
 // Ejercicio 5. Tecla para invertir el color de frente y fondo.

@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" href="includes/style.css"">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body ondblclick="randomPallette()">
 
@@ -43,6 +44,30 @@
                         <li><h1><a href="css (Segundo trimestre).html">Segundo trimestre</a></h1></li>                       
                     </ul>
                 </div>
+
+                <div class="ejercicios">
+                    <h2>Pulsa F1 para solicitar ayuda</h2>
+                    <p id="help"></p>
+
+                    <h2>Cambia el tamaño de letra e invierte los colores de letra y fondo</h2>
+
+                    <button id="disminuirJquery">-</button>
+                    <button id="invertirJquery">Invertir Colores</button>
+                    <button id="aumentarJquery">+</button><br><br>  
+            
+                    <p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed magna nisl, tincidunt nec enim ac, consectetur semper arcu. Suspendisse potenti. Aenean sit amet mi orci. Nunc sit amet nulla nibh. Sed risus ante, elementum quis tortor at, pharetra lacinia sapien. Proin purus dui, porttitor ac scelerisque et, ullamcorper a est.</p>
+
+                    <h2>Introduce números: Del 0 al 4, irán a la izquierda de la X. Del 5 al 9, a la derecha.</h2>
+
+                    <span id="lista1"></span>
+                    <span id="X">X</span>
+                    <span id="lista2"></span>
+
+                    <h2>Abre el reproductor MP3</h2>
+
+                    <button onclick="openMp3Player()">MP3</button>
+            
+                </div>
             </div>
     
             <div id="footer">
@@ -51,10 +76,8 @@
         </div>
     <script type="text/javascript" src="includes/script.js"></script>
     <script>
-        var c = document.getElementById("canvas");
-		var ctx = c.getContext("2d");
-		ctx.fillStyle = "DarkCyan";
-		ctx.fillRect(0, 0, c.width, c.height);
+        helper();
+        addNumber();
     </script>
     </body>
 </html>

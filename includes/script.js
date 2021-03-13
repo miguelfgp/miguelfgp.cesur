@@ -58,7 +58,7 @@ function helper(){
   document.addEventListener('keydown', function(event) {
 
     let code = event.code;
-    let helpText = document.getElementById("help").getElementsByTagName("h1")[0];
+    let helpText = document.getElementById("help");
   
     if (code.slice(0,1) == 'F'){
         let num = code.slice(1);
@@ -76,11 +76,20 @@ function helper(){
     });
 }
 
-
 function openCalc()
 {
   if (window.confirm('¿Desea probar la calculadora?')){
     var ventana = open('https://miguelfgp.github.io/miguelfgp.cesur/Calculadora/', '_blank', 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,height=467px,width=334px');
+  }
+  else{
+    window.alert('No hay problema');
+  }
+}
+
+function openMp3Player()
+{
+  if (window.confirm('¿Desea probar el reproductor MP3?')){
+    var ventana = open('mp3player/index.html', '_blank', 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,height=520px,width=685px');
   }
   else{
     window.alert('No hay problema');
@@ -130,6 +139,14 @@ function show(){
   }
 }
 
+function invertirColor(){
+
+  colorFondo = window.getComputedStyle(document.body).backgroundColor;
+  colorTexto = window.getComputedStyle(document.body).color;
+  
+  document.documentElement.style.setProperty('--color1', colorTexto);
+  document.documentElement.style.setProperty('--color2', colorFondo);
+}
 
 function list(){
 
@@ -280,4 +297,112 @@ function regex(){
   }
   
   document.getElementById("cumpleregex").innerHTML = message
+}
+
+$(document).ready(function() {
+  $( "select" ).change(function () {
+      $('#result').empty();
+      let value = "";
+      $( "select option:selected").each(function() {
+          value = $( this ).val();
+      });
+      let weatherRaw = getWeather(value);
+
+      weatherRaw.then(function(weather) {
+          let ul = document.createElement("ul");
+          let li = '';
+          let content = '';
+          ul.setAttribute("id", "weather");
+
+          for (attr in weather){
+              li = document.createElement("li");
+              content = document.createTextNode(attr + ': ' + weather[attr]);
+              li.appendChild(content);
+              ul.appendChild(li);
+          }
+
+          $( "#result" ).append(ul);
+      });
+  })
+});
+
+function getWeather(val){
+  let url = 'https://api.openweathermap.org/data/2.5/weather?id=%s&appid=541bcc0e0611a32e3becec862a2525dc&units=metric';
+  url = url.replace('%s', val);
+
+  return fetch(url)
+      .then((response) => {
+          return response.json();
+      })
+      .then((data) => {
+          var weatherRaw = {}
+
+          weatherRaw['humidity'] = data['main']['humidity'] + "%";
+          weatherRaw['temp_max'] = data['main']['temp_max'] + " ºC";
+          weatherRaw['temp_min'] = data['main']['temp_min'] + " ºC";
+          weatherRaw['wind'] = data['wind']['speed'] + " m/s";
+          weatherRaw['description'] = data['weather'][0]['description'];
+
+          return weatherRaw;
+      })
+      .catch((err) => {
+          console.log(err);
+      })
+}
+
+$("#invertirJquery").click(function(){
+  colorFondo = $("body").css("backgroundColor");
+  colorTexto = $("body").css("color");
+
+  $("body").css("backgroundColor", colorTexto);
+  $("body").css("color", colorFondo);
+
+  $(':root').css('--color1', colorTexto);
+  $(':root').css('--color2', colorFondo);
+})
+
+$("#aumentarJquery").click(function(){
+
+  tamanhoLetra = parseInt($("#text").css("font-size"));
+
+  tamanhoLetra++;
+
+  if (tamanhoLetra < 30){
+      $("#text").css("font-size", tamanhoLetra);
+  }
+
+})
+
+$("#disminuirJquery").click(function(){
+
+  tamanhoLetra = parseInt($("#text").css("font-size"));
+
+  tamanhoLetra--;
+
+  if (tamanhoLetra > 15){
+      $("#text").css("font-size", tamanhoLetra);
+  }
+
+})
+
+function addNumber(){
+  let number;
+  let span;
+  let lista;
+
+  $(document).on('keypress', function (event) {
+
+      number = parseInt(String.fromCharCode(event.which));
+      
+      if (number < 5){
+          span = "#lista1";
+      } else {
+          span = "#lista2";
+      }
+
+      $(span).append(number);
+      lista = Array.from($(span).text());
+      $(span).html(lista.sort());
+
+  });
 }
